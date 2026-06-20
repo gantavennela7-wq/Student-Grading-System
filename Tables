@@ -1,0 +1,28 @@
+## Students Table
+CREATE TABLE students(
+student_id INT AUTO_INCREMENT PRIMARY KEY,
+student_name VARCHAR(100),
+roll_no VARCHAR(20),
+department VARCHAR(50),
+year INT
+);
+
+## Subjects Table
+CREATE TABLE subjects(
+subject_id INT AUTO_INCREMENT PRIMARY KEY,
+subject_name VARCHAR(100),
+max_marks INT
+);
+
+## Marks Table
+CREATE TABLE marks(
+mark_id INT AUTO_INCREMENT PRIMARY KEY,
+student_id INT,
+subject_id INT,
+marks INT,
+grade VARCHAR(5),
+FOREIGN KEY(student_id)
+REFERENCES students(student_id),
+FOREIGN KEY(subject_id)
+REFERENCES subjects(subject_id)
+);
