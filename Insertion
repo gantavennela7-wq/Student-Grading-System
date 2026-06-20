@@ -1,0 +1,22 @@
+## Students
+INSERT INTO students
+(student_name,roll_no,department,year)
+VALUES
+('Rahul','101','CSE',3),
+('Anjali','102','ECE',2);
+
+## Subjects 
+INSERT INTO subjects
+(subject_name,max_marks)
+VALUES
+('Database',100),
+('Java',100),
+('Python',100);
+
+## Marks
+INSERT INTO marks
+(student_id,subject_id,marks,grade)
+VALUES
+(1,1,95,'A+'),
+(1,2,80,'A'),
+(2,3,65,'B');
