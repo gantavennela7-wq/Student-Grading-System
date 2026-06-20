@@ -1,0 +1,14 @@
+CREATE PROCEDURE student_result()
+BEGIN
+SELECT
+s.student_name,
+sub.subject_name,
+m.marks,
+m.grade
+FROM marks m
+JOIN students s
+ON m.student_id=s.student_id
+JOIN subjects sub
+ON m.subject_id=sub.subject_id;
+END 
+/
