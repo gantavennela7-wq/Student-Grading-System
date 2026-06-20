@@ -1,0 +1,17 @@
+CREATE TRIGGER calculate_grade
+BEFORE INSERT ON marks
+FOR EACH ROW
+BEGIN
+IF NEW.marks >=90 THEN
+SET NEW.grade='A+';
+ELSEIF NEW.marks >=75 THEN
+SET NEW.grade='A';
+ELSEIF NEW.marks >=60 THEN
+SET NEW.grade='B';
+ELSEIF NEW.marks >=40 THEN
+SET NEW.grade='C';
+ELSE
+SET NEW.grade='F';
+END IF;
+END 
+/
