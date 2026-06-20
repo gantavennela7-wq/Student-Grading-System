@@ -1,0 +1,1 @@
+SELECT s.student_name, s.roll_no, sub.subject_name, m.marks, m.gra FROM marks m JOIN students s ON m.student_id=s.student_id JOIN subjects sub ON m.subject_id=sub.subject_id;
