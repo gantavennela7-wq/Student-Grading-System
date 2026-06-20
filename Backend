@@ -1,0 +1,68 @@
+## db_connect.php
+<?php
+$conn = mysqli_connect(
+    "localhost",
+    "root",
+    "",
+    "student_db"
+);
+if(!$conn){
+    die("Database Connection Failed");
+}
+?>
+
+## add_students.php
+<?php
+include "db_connect.php";
+$name=$_POST['name'];
+$roll=$_POST['roll'];
+$dept=$_POST['dept'];
+$year=$_POST['year'];
+$sql=
+"INSERT INTO students
+(student_name,roll_no,department,year)
+VALUES
+('$name','$roll','$dept','$year')";
+if(mysqli_query($conn,$sql))
+{
+echo "Student Added Successfully";
+}
+else
+{
+echo "Error";
+}
+?>
+
+## fetch_students.php
+<?php
+include "db_connect.php";
+$sql=
+"SELECT * FROM students";
+$result=mysqli_query(
+$conn,
+$sql
+);
+$data=[];
+while($row=mysqli_fetch_assoc($result))
+{
+$data[]=$row;
+}
+echo json_encode($data);
+?>
+
+## delete_students.php
+<?php
+include "db_connect.php";
+$id=$_POST['id'];
+$sql=
+"DELETE FROM students
+WHERE student_id='$id'";
+if(mysqli_query($conn,$sql))
+{
+echo "Deleted Successfully";
+}
+else
+{
+echo "Error";
+}
+?>
